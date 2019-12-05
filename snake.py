@@ -10,7 +10,7 @@ class Snake():
         self.direction = "right"                            # Direction of travel, this is to prevent a snake going to lets say right, suddenly turning to the left.
     def move(self, input_direction):
         ###changes the self.pos to reflect the movement of the snake.###
-        for pos_index in range(len(self.pos),1,-1):
+        for pos_index in range(len(self.pos)-1,0,-1):
             self.pos[pos_index] = self.pos[pos_index-1]     # Updates the position of the snakebits from back to front. only the head is dependent on the input.
 
         if input_direction == "up":
@@ -28,3 +28,4 @@ class Snake():
         return tuple(map(operator.add,tuple_1,tuple_2))
     def _grow_snake(self):
         ### what happens when the snake eats food. ###
+        pass
