@@ -37,5 +37,18 @@ class Button():
         pygame.draw.rect(self.screen, color, (self.x, self.y, self.width, self.height))
         screen.blit(self.text, (self.x,self.y+1))
 
+screen = pygame.display.set_mode((400,300))
+done = False
+start_button = Button(screen, colors.white, (200,100),"Hasd", 16, 56, 19)
+start_button1 = Button(screen, colors.white, (200,200),"Start", 16, 56, 19)
 
+while not done:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
+
+    screen.fill(colors.black)
+    start_button.draw()
+    start_button1.draw()
+    pygame.display.flip()
 
