@@ -1,4 +1,4 @@
-from graphics.graphics import *
+from graphics.game_graphics import *
 from physics.game import *
 
 class Main():

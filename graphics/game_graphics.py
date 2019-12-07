@@ -8,9 +8,11 @@ class Window():
         self.screen_width = screen_width
         self.screen_heigth = screen_height
         self.screen = pygame.display.set_mode((self.screen_width,self.screen_heigth))
+        pygame.display.set_caption('Snake')
         self.food_color = (255,255,255)
         self.game = Game
         self.fps = fps
+
     def draw_game(self):
         self.screen.fill((0,0,0))
         self.draw_food()
