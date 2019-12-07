@@ -1,5 +1,4 @@
 import operator
-from random import randint
 
 class Snake():
     def __init__(self, color = (255,255,255), start_length = 10, start_speed = 5, right_bound=400, bottom_bound = 300 ):
@@ -52,16 +51,5 @@ class Snake():
         ### what happens when the snake eats food. ###
         for _ in range(growthlength):
             self.pos.append((-10,-10))
-
-class Food():
-    def __init__(self, screen_width, screen_height, snake_speed):
-        self.pos = [(50,50)]
-        self.screen_width = screen_width
-        self.screen_height = screen_height
-        self.snake_speed = snake_speed
-
-    def make_new_food(self):
-        self.pos.pop()
-        self.pos.append(((randint(10, self.screen_width)//self.snake_speed)*self.snake_speed,(randint(10,(self.screen_height-10))//self.snake_speed) * self.snake_speed))
 
 

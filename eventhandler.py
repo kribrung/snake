@@ -1,4 +1,4 @@
-def is_snake_in_self(Snake):
+def has_snake_crashed(Snake):
     if Snake.pos[0] in [Snake.pos[x] for x in range(1, len(Snake.pos))]:
         return True
     else:
