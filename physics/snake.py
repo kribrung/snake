@@ -1,17 +1,16 @@
 import operator
-
+from random import randint
 
 class Snake():
-    ###definiing a object snake. when it has not eaten food it's size is 2 since one would not be a snake!
     def __init__(self, color = (255,255,255), start_length = 10, start_speed = 5, right_bound=400, bottom_bound = 300 ):
         self.right_bound = right_bound
         self.left_bound = 0
         self.bottom_bound = bottom_bound
         self.top_bound = 0
         self.color = color
-        self.speed = start_speed                               # The snake's current speed. will be able to decide how much an snake moves in a frame by this. the tempo will be decided by the fps.
-        self.pos = [(x,0) for x in range(start_length, 0, -1)]                         # Array of tuples concerning what positions the snake is currently occupying.
-        self.direction = "right"                        # Direction of travel, this is to prevent a snake going to lets say right, suddenly turning to the left.
+        self.speed = start_speed     # The snake's current speed. will be able to decide how much an snake moves in a frame by this. the tempo will be decided by the fps.
+        self.pos = [(x,0) for x in range(start_length, 0, -1)] # Array of tuples concerning what positions the snake is currently occupying.
+        self.direction = "right"     # Direction of travel, this is to prevent a snake going to lets say right, suddenly turning to the left.
     def move(self, input_direction):
         ###changes the self.pos to reflect the movement of the snake.###
         for pos_index in range(len(self.pos)-1,0,-1):
@@ -53,3 +52,16 @@ class Snake():
         ### what happens when the snake eats food. ###
         for _ in range(growthlength):
             self.pos.append((-10,-10))
+
+class Food():
+    def __init__(self, screen_width, screen_height, snake_speed):
+        self.pos = [(50,50)]
+        self.screen_width = screen_width
+        self.screen_height = screen_height
+        self.snake_speed = snake_speed
+
+    def make_new_food(self):
+        self.pos.pop()
+        self.pos.append(((randint(10, self.screen_width)//self.snake_speed)*self.snake_speed,(randint(10,(self.screen_height-10))//self.snake_speed) * self.snake_speed))
+
+
